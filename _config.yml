@@ -11,7 +11,7 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "http://elbae.github.io"
 #url: "http://127.0.0.1:4000" #"http://elbae.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
-theme: jekyll-theme-hacker #minima
+theme: minima #jekyll-theme-hacker 
 
 exclude:
   - .sass-cache/
