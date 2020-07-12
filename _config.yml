@@ -6,7 +6,7 @@ email:   #
 
 description: Personal space connected with github. Nothing is related to the company I work for if not specifically underlined.
 
-baseurl: "/index" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 
 url: "http://elbae.github.io"
 #url: "http://127.0.0.1:4000" #"http://elbae.github.io" # the base hostname & protocol for your site, e.g. http://example.com
