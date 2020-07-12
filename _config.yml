@@ -29,6 +29,5 @@ exclude:
 
 
 header_pages:
-  - index.markdown
   - notes.markdown
   - whoami.markdown
