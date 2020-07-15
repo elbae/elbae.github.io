@@ -13,7 +13,7 @@ categories: jekyll update
 ### Tested on: 2.8.9, 2.9.0
 
 ## Abstract
-During my spare time I analized *indipendently* a publicly available product, not extremely widespread, but still used around the world. I found several vulnerabilities, reported to the vendor which **silently fixed** a few of them without a single answer to my e-mails.
+During my spare time I analized *independently* a publicly available product, not extremely widespread, but still used around the world. I found several vulnerabilities, reported to the vendor which **silently fixed** a few of them without a single answer to my e-mails.
 
 ## Company Description
 > Mida Solutions is a high skilled Italian company focusing on Unified Communication. Since 2004, it offers unique expertise and a complete suite of advanced services and voice applications with the mission to provide value added innovative technologies for communication.
