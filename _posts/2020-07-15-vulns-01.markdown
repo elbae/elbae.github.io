@@ -31,8 +31,8 @@ The product comes as a preconfigured Open Virtual Appliance (OVA) which can be d
 ## Business recommendation
 The vendor did not respond to my communication attempts, hence no patch is
 available.
-A third party patch may be released either if company will not fix the product in the next months or at request.
-Do not expose the software on WAN. Use ACL to allow or deny accesses to the software.
+A third party patch may be released either if the company will not fix the product in the next months or at request.
+Do not expose the software on WAN. Use ACL to allow or deny access to the software.
 
 ## Vulnerability highlight
 Several vulnerabilities allow unauthenticated Remote Code Execution (RCE) through Command Injection on the system with administrative privileges. Any attacker may leverage the issue to obtain a remote shell, or directly execute system commands with the output returned in text format, and possibly access the internal network (if exposed in WAN).
@@ -56,7 +56,7 @@ eFramework <= 2.9.0 in its component *undisclosed* has a ../ directory traversal
 
 -7. Administrative Back-door access
 (Unauthenticated)
-Mida Solutions eFramework <= 2.9.0 in its component *undisclosed* has back-door which permits to change the administrative password and access restricted functionalities. Successful exploitation could allow an attacker to access the web application with administrative account and leverage other vulnerabilities to obtain Code Execution.
+Mida Solutions eFramework <= 2.9.0 in its component *undisclosed* has a back-door which permits to change the administrative password and access restricted functionalities. Successful exploitation could allow an attacker to access the web application with an administrative account and leverage other vulnerabilities to obtain Code Execution.
 
 -8. Reflected Cross-Site Scripting (XSS)
 (Unauthenticated)
@@ -64,7 +64,7 @@ A Reflected Cross Site Scripting (XSS) Vulnerability was discovered in Mida Solu
 
 -9. Stored XSS
 (Authenticated)
-Multiple Stored Cross Site Scripting (XSS) Vulnerability were discovered in Mida Solutions eFramework <= 2.9.0 component *undisclosed*.
+Multiple Stored Cross Site Scripting (XSS) were discovered in Mida Solutions eFramework <= 2.9.0 component *undisclosed*.
 
 ## POC
 
@@ -79,7 +79,7 @@ Complete POC will be released in the next months.
 Mida Solutions eFramework version 2.8.9 has been tested, which was the latest version
 available at the time of the test. Previous versions may also be affected.
 In the first quarter of the year the vendor released a newer version 2.9.0. However, the latest
-version are still vulnerable to the above vulnerabilities.
+version is still vulnerable to the above vulnerabilities.
 
 ## Vendor response
 No response or statement from the vendor.
