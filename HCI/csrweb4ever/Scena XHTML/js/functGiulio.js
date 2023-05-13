@@ -729,6 +729,7 @@
 	 // UTILS
 	 
 	 function inizializzaTutto(){
+		console.log(`[AB]: inizializzaTutto in functGiulio.js `);
 		salvaScaleMet();
 		
 		aggiustaValori();
