@@ -40,6 +40,7 @@
 			
 	/* METAFORE */
 	function cambiaAnnoScenaParam( anno ){
+		console.log(`[AB]: cambiaAnnoScenaParam(${anno})`);
 	
 		hideit();
 		
