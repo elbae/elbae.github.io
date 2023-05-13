@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+    	<script type="text/javascript" src="js/jscharts.js"></script>
+        <script type="text/javascript" src="js/SosLibrary.js"></script>
+		<script type="text/javascript" src="js/jquery-1.5.min.js" > </script>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+       <!-- <link href="stile.css" rel="stylesheet" type="text/css" />-->
+		<title>Grafico qualitativo</title>
+     <style>
+		body{
+			color:#FFFFFF;
+			font-size:12px;
+			font-family:"MS Serif", "New York", serif;
+		}
+		#intestazione{
+		    font-size:20px;
+			color:red;
+			text-align:center;
+		}
+		.titolo{
+			color:#000099;
+			font-size:20px;
+		}
+		#descrizione{
+			   	font-family:"MS Serif", "New York", serif;
+				width:70%;
+				color:#000000;
+				text-align:left;
+				font-size:14px;
+		}
+
+		#grafico{
+			padding-left:20px;
+			float:left;
+		}
+	</style> 
+        <script tye="text/javascript">
+			function getId(){
+		 
+				var i = parseInt(location.search.substr(1).split("=")[1]);
+				var val='';
+				switch(i){
+					case 1:val='Consumo idrico'; break;
+					case 2:val='Consumo procapite'; break;
+					case 3:val='Gradimento stakeholder'; break;
+					case 4:val='Numero progetti'; break;
+					case 5:val='Risparmio cartaceo'; break;
+					case 6:val='Trasporti sostenibili'; break;
+					case 7:val='Soddisfazione del personale'; break;
+					case 8:val='Soddisfazione studenti'; break;
+					case 9:val='Raccolta differenziata'; break;
+					case 10: val='Fornitura eco sostenibile'; break;
+					default: val='riepilogo'; break;
+				 }
+				 return val;
+			}
+			function Valori(){
+				var val=getId(); 
+				getRowsInTimeBetween(val, "2008-01-01", "2012-01-01", "Teamrocket","ASC",Visualizza, MostraErrore); //Parametro Aggiuntivo
+			}
+
+			function Visualizza(xml, parametro1)
+			{
+				var Valore=new Array(5);
+				var Nome;
+				var x='Anno';
+				var y='';
+				var j=0;
+				$(xml).find('Riga').each(function(){
+				Nome = $(this).find('Nome').text();
+				Valore[j] = $(this).find('Valore').text();
+				var Data = $(this).find('Data').text();
+				y = $(this).find('Unita').text();
+				j++;})
+				var myData = new Array([2008, parseInt(Valore[0])],[2009, parseInt(Valore[1])],[2010, parseInt(Valore[2])],[2011, parseInt(Valore[3])],[2012, parseInt(Valore[4])]);
+				var myChart = new JSChart('grafico', 'line');
+				myChart.setDataArray(myData);
+				myChart.setAxisNameX(x,true);
+				myChart.setAxisNameY(y,true);
+				myChart.setTitle("");
+				myChart.draw();
+			}
+
+			function MostraErrore(textStatus, parametro1)
+			{
+			/* Gestisci l'errore */
+				alert("Errore di tipo "+textStatus);
+				alert("Consolati con il parametro " + parametro1);
+			}
+		</script>
+    </head>
+    
+       
+<body onload="Valori()">
+		<script type="text/javascript">
+				var nome=getId();
+				var id="intestazione";
+				document.write("<p id="+id+">"+nome+"<p/>");
+		</script>
+		  <p class="titolo">Grafico riepilogativo</p>
+          <div id="grafico">Caricamento grafico...</div>
+          <p class="titolo"> Descrizione variabile </p>
+          <div id="descrizione"> 
+			    <script type="text/javascript">
+				 var src=getId();
+				 switch(src){
+					 case "Consumo idrico" : document.write("Il range è stato calcolato: (consumo medio giornaliero*250 giorni l'anno (togliendo festività, ecc)*n° studenti ca foscari (17502))/superficie totale università stimata (650000 m quadri). Valore ottimo= <2,5 Valore buono= 3 Valore discreto= 3,5 Valore insufficiente= 4 Valore inaccettabile= >4,5"); break;
+					 case "Consumo procapite" : document.write("Monitoraggio annuale dei consumi energetici per persona. Valore ottimo= <2500 Valore buono= 3000 Valore discreto= 3500 Valore insufficiente= 4000 Valore inaccettabile= >4500"); break;
+					 case "Gradimento stakeholder" : document.write("Il parametro verrà valutato tramite un questionario annuale somministrato a tutti gli stakeholder."); break;
+					 case "Numero progetti" : document.write("Si monitora il numero di progetti eco sostenibili sul totale dei progetti. Valore ottimo= >60% Valore buono= 50% Valore discreto= 45% Valore insufficiente=35% Valore inaccettabile= <35%"); break;
+					 case "Risparmio cartaceo" : document.write("Si valuta l'impegno considerando l'iniziativa del 2010 finalizzata all'eliminazione di materiale cartaceo."); break;
+					 case "Trasporti sostenibili" : document.write("Si valuta tramite questionari la percentuale di persone che utilizzano mezzi eco sostenibili per arrivare all'ateneo. Valore ottimo= >60% Valore buono= 50% Valore discreto= 45% Valore insufficiente=35% Valore inaccettabile= <35% 	elimina"); break;
+					 case "Soddisfazione del personale" :document.write("La soddisfazione del personale viene valutata attraverso dei questionari distribuiti ogni anno"); break;
+					 case "Soddisfazione studenti" : document.write("La soddisfazione degli studenti viene valutata attraverso dei questionari distribuiti ogni anno "); break;
+					 case "Raccolta differenziata" : document.write("Si valuta la percentuale di rifiuti differenziati sul totale. Valore ottimo= >60% Valore buono= 50% Valore discreto= 45% Valore insufficiente=35% Valore inaccettabile= <35%"); break;
+					 case "Fornitura eco sostenibile" : document.write("Monitoraggio su tutti i tipi di fornitura utili all’ateneo, percentuale di materiali con riconoscimento ecologico in rapporto al totale. Si ritiene discreto un valore superiore al 55%."); break
+					 default : break;
+				 }
+				 </script>
+										
+			</div> 
+            
+</body>
+</html>
