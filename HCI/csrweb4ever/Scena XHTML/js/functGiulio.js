@@ -918,7 +918,7 @@ function getAllVariables(){
 
 
 function salvaVal( xml, index ){
-	
+
 	var anno=0;
 
 	$(xml).find('Riga').each(

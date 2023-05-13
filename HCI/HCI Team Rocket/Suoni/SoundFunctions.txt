@@ -1,0 +1,16 @@
+	<audio id='slideUp'>
+		<source src="Suoni/sliderUp.wav" type="audio/wav" preload="auto" />
+	</audio>
+	<audio id='slideDown'>
+		<source src="Suoni/sliderDown.wav" type="audio/wav" preload="auto" />
+	</audio>
+	<audio id='viewpoint'>
+		<source src="Suoni/viewpoint.wav" type="audio/wav" preload="auto" />
+	</audio>
+	
+	<script type="text/javascript"><![CDATA[
+	
+	function suona(src){
+		var c1=document.getElementById(src);
+		c1.play();
+	}	
