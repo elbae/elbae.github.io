@@ -141,6 +141,7 @@
 	
 	function inizializza(altezze)
 	{
+		console.log(`[AB]: inizializza(${altezze}) in functRoss.js `);
 		//console.log('inizializzo le altezze');
 		var i;
 		for(i=0;i<10;i++)
