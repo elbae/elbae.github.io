@@ -632,33 +632,53 @@ function getRowsInTimeBetween(Nome, DataA, DataB, Gruppo, Ordine, onSuccess, onE
 	switch(Nome){
 		case "Gradimento del Personale":
 			// code block
+			Valore1 = 8;
+			Valore2 = 6;
 			break;
 		case "Media tra Cancelleria, Energia Verde e Prodotti Equosolidali":
 			// code block
+			Valore1 = 1;
+			Valore2 = 56;
 			break;
 		case "Cons. Energetico per Utente":
 			// code block
+			Valore1 = 6;
+			Valore2 = 6;
 			break;
 		case "Partecipazione a eventi sostenibili":
 			// code block
+			Valore1 = 8;
+			Valore2 = 10;
 			break;
 		case "Kg Carta per Utente":
 			// code block
+			Valore1 = 3;
+			Valore2 = 10;
 			break;
 		case "Consumo Idrico":
 			// code block
+			Valore1 = 3;
+			Valore2 = 9;
 			break;
 		case "Utilizzo dei mezzi pubblici":
 			// code block
+			Valore1 = 3;
+			Valore2 = 5;
 			break;
 		case "Raccolta differenziata":
 			// code block
+			Valore1 = 9;
+			Valore2 = 4;
 			break;
 		case "Fondi Sostenibili":
 			// code block
+			Valore1 = 10;
+			Valore2 = 7;
 			break;
 		case "CFU dedicati al sostenibile":
 			// code block
+			Valore1 = 9;
+			Valore2 = 5;
 			break; 
 	}
 
