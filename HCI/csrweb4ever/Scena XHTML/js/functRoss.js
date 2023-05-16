@@ -151,7 +151,14 @@
 			var tmp=palazzo.getAttribute("translation");
 			var coords = tmp.split(" ");
 			var y = parseFloat(coords[1]);
-			y+=altezze[i]; //valori[i] - 5
+			/* aba custom start */
+			if(altezze[i] == 0){
+				y=0.0;
+			}else{
+				y+=altezze[i]; //valori[i] - 5
+			}
+			/* aba custom ends */
+			//y+=altezze[i]; //valori[i] - 5
 			//console.log('palazzo'+i+':'+y);
 			palazzo.setAttribute("translation",coords[0]+" "+y+" "+coords[2]);
 			
@@ -161,7 +168,7 @@
 			var coordsCamera = tmpCamera.split(" ");
 			var yCamera = parseFloat(coordsCamera[1]);
 			yCamera+=altezze[i];
-			//console.log('palazzo'+i+':'+y);
+			console.log('palazzo'+i+':'+y);
 			camera.setAttribute("position",coordsCamera[0]+" "+yCamera+" "+coordsCamera[2]);
 			
 			
