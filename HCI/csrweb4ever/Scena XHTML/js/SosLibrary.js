@@ -622,6 +622,7 @@ function getRowsInTimeBetween(Nome, DataA, DataB, Gruppo, Ordine, onSuccess, onE
 	/* 
 		Custom parte ab 13.05.2023
 	*/
+	console.log(`[AB] BYPASS getRowsInTimeBetween OK`);
 	var Valore1 = 3;
 	var Valore2 = 6;
 	var Data1 = DataA;
@@ -638,7 +639,7 @@ function getRowsInTimeBetween(Nome, DataA, DataB, Gruppo, Ordine, onSuccess, onE
 		case "Media tra Cancelleria, Energia Verde e Prodotti Equosolidali":
 			// code block
 			Valore1 = 1;
-			Valore2 = 56;
+			Valore2 = 5;
 			break;
 		case "Cons. Energetico per Utente":
 			// code block
@@ -682,36 +683,11 @@ function getRowsInTimeBetween(Nome, DataA, DataB, Gruppo, Ordine, onSuccess, onE
 			break; 
 	}
 
-	data = `<?xml version="1.0"?>
-	<Riga>
-		<Nome>
-			${Nome}
-		</Nome>
-		<Valore>
-			${Valore1}
-		</Valore>
-		<Data>
-			${Data1}
-		</Data>
-		<Unita>
-			${Unita1}
-		</Unita>
-	</Riga>
-	<Riga>
-		<Nome>
-			${Nome}
-		</Nome>
-		<Valore>
-			${Valore2}
-		</Valore>
-		<Data>
-			${Data2}
-		</Data>
-		<Unita>
-			${Unita2}
-		</Unita>
-	</Riga>`
+	var data = `<?xml version="1.0" encoding="iso-8859-1"?><data><Riga><Nome>${Nome}</Nome><Valore>${Valore1}</Valore><Data>${Data1}</Data><Unita>${Unita1}</Unita></Riga><Riga><Nome>${Nome}</Nome><Valore>${Valore2}</Valore><Data>${Data2}</Data><Unita>${Unita2}</Unita></Riga></data>`
+	console.log(data);
+	//onSuccess(data, Nome,DataA,DataB,Gruppo, Ordine);
 	return(data);
+	//onSuccess(data, args[0],args[1],args[2],args[3], args[4]);
 
 	/*
 		Can't use this code anymore
@@ -773,6 +749,8 @@ function getRowsInTimeBetween(Nome, DataA, DataB, Gruppo, Ordine, onSuccess, onE
 function getRowsInTimeBetweenPerType(Tipo, DataA, DataB, Gruppo, Ordine, onSuccess, onError, params)
 {
 	var args = []; 
+
+	console.log(`[AB] BYPASS getRowsInTimeBetweenPerType KO`);
 
 	for(i=7; i< arguments.length; i++)
 	{	args.push(arguments[i]);}

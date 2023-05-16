@@ -43,21 +43,26 @@
 		console.log(`[AB]: cambiaAnnoScenaParam(${anno})`);
 	
 		hideit();
-		
+		console.log(`[AB]: pre altezze[i](${altezze})`);
 		for(i=0; i<10 ;i++){
-			altezze[i]= - altezze[i];
+			//altezze[i] =- altezze[i];
+			altezze[i] = 0;
 		}
+		console.log(`[AB]: post altezze[i](${altezze})`);
 		
 		inizializza(altezze); // riporto a zero palazzi
 		
 		annoScena=anno-2011;
+		console.log(`[AB]: annoscena(${annoScena})`);
 		
 		for(i=0; i<10 ;i++){ // porto tutte le metafore al nuovo anno della scena
-			annoMetafore[i]= annoScena;
+			annoMetafore[i]= annoScena; // qui mette solo a 0 o a 1
+			//console.log(`[AB]: annoMetafore[i]= annoScena; // i->${i} // ${annoMetafore[i]} = ${annoScena}`);
 		}
-		
+		console.log(`[AB] altezzePalazzi -> ${altezzePalazzi(0)}`)
+		console.log(`[AB] altezzePalazzi -> ${altezzePalazzi(1)}`)
 		altezze=altezzePalazzi(annoScena);
-		inizializza(altezze); // metto i palazzi alla nuova altezza
+		//inizializza(altezze); // metto i palazzi alla nuova altezza
 		
 		//inizializza();
 	}
@@ -744,8 +749,10 @@
 	
 	function intro()
 	{
-	
-	alert(intro_str);
+	/*
+	Sospendo alert iniziale temporaneamente
+	*/
+	// alert(intro_str);
 	inizializzaTutto();
 	
 	}
@@ -812,6 +819,7 @@ function MostraErrore(textStatus, parametro1)
 }
 
 
+/*
 function getAllVariables(){
 
 	getRowsInTimeBetween(
@@ -918,11 +926,55 @@ function getAllVariables(){
 	
 }
 
+*/
+
+function getAllVariables(){
+	var data = "";
+	data = getRowsInTimeBetween("CFU dedicati al sostenibile", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal,MostraErrore,0 ); // indice nell'array
+	salvaVal(data,0);
+		
+	data = getRowsInTimeBetween("Partecipazione a eventi sostenibili", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal,MostraErrore, 1 ); //Parametro Aggiuntivo
+	salvaVal(data,1);
+		
+	data = getRowsInTimeBetween("Gradimento del Personale", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal,MostraErrore, 2);	//Parametro Aggiuntivo
+	salvaVal(data,2);
+		
+	data = getRowsInTimeBetween("Media tra Cancelleria, Energia Verde e Prodotti Equosolidali", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal,MostraErrore, 3);	//Parametro Aggiuntivo
+	salvaVal(data,3);
+		
+	data = getRowsInTimeBetween("Cons. Energetico per Utente", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal, MostraErrore, 4);	//Parametro Aggiuntivo	
+	salvaVal(data,4);
+		
+	data = getRowsInTimeBetween("Consumo Idrico", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal,MostraErrore, 5);	//Parametro Aggiuntivo
+	salvaVal(data,5);
+		
+	data = getRowsInTimeBetween("Kg Carta per Utente", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal,MostraErrore, 6);	//Parametro Aggiuntivo
+	salvaVal(data,6);
+		
+	data = getRowsInTimeBetween("Raccolta differenziata", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal,MostraErrore, 7);	//Parametro Aggiuntivo	
+	salvaVal(data,7);
+	
+	data = getRowsInTimeBetween("Utilizzo dei mezzi pubblici", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal,MostraErrore, 8);	//Parametro Aggiuntivo
+	salvaVal(data,8);
+	
+	data = getRowsInTimeBetween("Fondi Sostenibili", "2010-01-01", "2013-12-31", "Bellialbuio", "ASC", salvaVal,MostraErrore, 9);	//Parametro Aggiuntivo
+	salvaVal(data,9);
+			
+	//alert("fatto\n" + testiVariabili[0][0]);
+	
+}
 
 function salvaVal( xml, index ){
 
+	console.log(`[AB] in salvaVal con index ${index}`);
+	console.log(`[AB] in salvaVal con xml ${xml}`);
 	var anno=0;
 
+	parser = new DOMParser();
+	xmlDoc = parser.parseFromString(xml,"text/xml");
+	console.log(xmlDoc);
+
+	console.error(`Errore deve essere qui nel parsing xml`)
 	$(xml).find('Riga').each(
 	
 		function(){
@@ -938,6 +990,7 @@ function salvaVal( xml, index ){
 		str="<strong>Variabile:</strong> "+ Nome + "<br/><strong>Valore:</strong> " + Valore + " " + Unita + "<br/><strong>Data:</strong> "+ Data;
 		//str="<strong>Variabile:</strong> <span class='blu'>"+ Nome + "</span><br/><strong>Valore:</strong> <span class='blu'>" + Valore + " " + Unita + "</span><br/><strong>Data:</strong> <span class='blu'>"+ Data+"</span>";
 		valoriVariabili[anno][index] = parseInt(Valore,10);
+		console.log(`valoriVariabili[${anno}][${index}] = ${parseInt(Valore,10)}; -> Valore ${Valore}`);
 		testiVariabili[anno][index] = str;
 		anno++;
 		
@@ -990,7 +1043,8 @@ function aggiustaValori(){
 function altezzePalazzi(annoS){
 	// valoriVariabili di 1 perche' i palazzi sono sempre alti come l'ultimo anno
 	var res = new Array(1,1,1,1,1,1,1,1,1,1);
-	
+	console.log(`[AB] -> valoriVariabili =  ${valoriVariabili[0]}`)
+	console.log(`[AB] -> valoriVariabili =  ${valoriVariabili[1]}`)
 	for (i=0; i< 10 ; i++) {
 		//res[i] = valoriVariabili[1][i] - 5 ;
 		res[i] = valoriVariabili[annoS][i] - 5 ;

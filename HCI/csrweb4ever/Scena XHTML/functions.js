@@ -134,6 +134,7 @@
 	
 	function inizializza(altezze)
 	{
+		console.log(`[AB]: inizializza(${altezze}) in functions.js `);
 		//console.log('inizializzo le altezze');
 		var i;
 		for(i=0;i<10;i++)
